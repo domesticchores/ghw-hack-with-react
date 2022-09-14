@@ -1,5 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
+import TextComponent from './components/TextComponent.js';
+import linkdata from './data/linkdata.js';
 
 /** This is the main file for you to develop your app!
  * Everything inside the App return statement will be rendered to the DOM.
@@ -18,22 +20,25 @@ function App() {
   */
 
   return (
+    <>
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>Hello.</p>
+        <div
+        className="TextComponent">
+        {linkdata.links.map((segment) => (
+        <TextComponent 
+        key={segment.name}
+        name={segment.name}
+        repo={segment.repo}
+        youtube={segment.youtube}
+        slides={segment.slides}
+        />
+        ))}
+        </div>
       </header>
     </div>
+    </>
   );
 }
 
